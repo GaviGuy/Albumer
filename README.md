@@ -4,7 +4,7 @@ Will stitch any given number of Spin Rhythm XD charts together in a sequence.
 Designed for use with individual song audio clips, or one long combined audio clip.
 
 To use:
-1. Run the program and answer first few prompts in the console
+1. Run the program and answer the first few prompts in the console
 2. Inspect the generated midpoint files for inaccuracies. Save each one in-game, even if you made no changes
 3. Return to the console and hit enter to finalize everything
 
