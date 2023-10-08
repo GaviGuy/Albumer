@@ -117,6 +117,7 @@ namespace Albumer {
             float[] audioLengths = new float[numCharts];
             float firstChartAudioLength = 0;
             int[] numBeats = new int[numCharts];
+            //bool hasRemixd = false;
 
             //mod 1: modify all charts to start/stop at audio start/stop
             for (int i = 0; i < numCharts; i++) {
@@ -142,8 +143,8 @@ namespace Albumer {
                           tOffset = curClipInfo.BpmMarkers[0].ClipTime;
 
                     //account for negative clipData startBar
-                    for (int j = 4; j >= 1; j--) {
-                        if (srtbs[i].GetTrackInfo().Difficulties[j].Active) {
+                    for (int j = 5; j >= 1; j--) {
+                        if (j < srtbs[i].GetTrackInfo().Difficulties.Count && srtbs[i].GetTrackInfo().Difficulties[j].Active) {
                             if (curNoteData[j].ClipData[0].StartBar < 0) {
                                 noteChange += curNoteData[j].ClipData[0].StartBar * curClipInfo.BpmMarkers[0].BeatLength * curClipInfo.TimeSignatureMarkers[0].TicksPerBar;
                                 break;
@@ -257,6 +258,9 @@ namespace Albumer {
                         }
 
                     }
+
+                    //if (curNoteData.Length > 5) hasRemixd = true;
+
                     //move notes
                     for (int j = 0; j < curNoteData.Length; j++) {
                         for (int k = 0; k < curNoteData[j].Notes.Count; k++) {
@@ -369,6 +373,22 @@ namespace Albumer {
             SRTB.TrackData[] destData = { srtbs[0].GetTrackData(0), srtbs[0].GetTrackData(1), srtbs[0].GetTrackData(2), srtbs[0].GetTrackData(3), srtbs[0].GetTrackData(4) };
             SRTB.ClipInfo destClip = srtbs[0].GetClipInfo(0);
 
+            //account for remixd
+            /*
+            if (hasRemixd) {
+                //if the first srtb has a remixd, use it
+                if (destTrack.Difficulties.Count >= 5) {
+                    destData[5] = srtbs[0].GetTrackData(5);
+                }
+                //else, add an empty remixd diff modeled after the xd
+                else {
+                    var temp = srtbs[0].GetTrackData(4);
+                    temp.DifficultyType = SRTB.DifficultyType.XD + 1;
+                    destData[5] = temp;
+                }
+            }
+            */
+
             //long audio
             if (mode == 1) {
 
@@ -450,7 +470,7 @@ namespace Albumer {
                     }
 
                     //append to trackData
-                    for (int j = 0; j < 5; j++) {
+                    for (int j = 0; j < curData.Length; j++) {
                         for (int k = 0; k < curData[j].Notes.Count; k++) {
                             //notes
                             curData[j].Notes[k].Time += concurrentNoteOffset;

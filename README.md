@@ -21,10 +21,14 @@ Not designed for use with charts that:
 
 * Use multiple ClipInfos
 
-* Use non-default clipData
+* Use non-default clipData in any difficulty
 
 * Start with an interpolated bpm marker
 
 * Have multiple bpm markers before the first time signature marker
 
 * Have multiple time signature markers before the first bpm marker
+
+Currently doesn't copy flight path data
+
+Currently doesn't support RemiXD difficulty
