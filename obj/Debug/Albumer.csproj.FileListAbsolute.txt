@@ -1,0 +1,14 @@
+C:\Users\gavin\source\repos\SRTBSplicer\Albumer\obj\Debug\Albumer.csproj.AssemblyReference.cache
+C:\Users\gavin\source\repos\SRTBSplicer\Albumer\obj\Debug\Albumer.csproj.CoreCompileInputs.cache
+C:\Users\gavin\source\repos\SRTBSplicer\Albumer\bin\Debug\Albumer.exe.config
+C:\Users\gavin\source\repos\SRTBSplicer\Albumer\bin\Debug\Albumer.exe
+C:\Users\gavin\source\repos\SRTBSplicer\Albumer\bin\Debug\Albumer.pdb
+C:\Users\gavin\source\repos\SRTBSplicer\Albumer\bin\Debug\ChartHelper.Parsing.dll
+C:\Users\gavin\source\repos\SRTBSplicer\Albumer\bin\Debug\ChartHelper.Types.dll
+C:\Users\gavin\source\repos\SRTBSplicer\Albumer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\gavin\source\repos\SRTBSplicer\Albumer\bin\Debug\System.Drawing.Common.dll
+C:\Users\gavin\source\repos\SRTBSplicer\Albumer\bin\Debug\ChartHelper.Types.xml
+C:\Users\gavin\source\repos\SRTBSplicer\Albumer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\gavin\source\repos\SRTBSplicer\Albumer\obj\Debug\Albumer.csproj.CopyComplete
+C:\Users\gavin\source\repos\SRTBSplicer\Albumer\obj\Debug\Albumer.exe
+C:\Users\gavin\source\repos\SRTBSplicer\Albumer\obj\Debug\Albumer.pdb

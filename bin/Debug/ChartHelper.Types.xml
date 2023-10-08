@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ChartHelper.Types</name>
+    </assembly>
+    <members>
+        <member name="T:ChartHelper.Types.NoteTypeRaw">
+            <summary>
+            The type of a note, as specified by the srtb
+            </summary>
+        </member>
+        <member name="T:ChartHelper.Types.NoteType">
+            <summary>
+            The specific type of a note
+            </summary>
+        </member>
+        <member name="T:ChartHelper.Types.CurveType">
+            <summary>
+            The curve type of a note
+            </summary>
+        </member>
+        <member name="F:ChartHelper.Types.CurveType.Cosine">
+            <summary>
+            Also specifies regular hold ends and hard beat releases
+            </summary>
+        </member>
+        <member name="F:ChartHelper.Types.CurveType.CurveOut">
+            <summary>
+            Also specifies liftoffs and soft beat releases
+            </summary>
+        </member>
+        <member name="T:ChartHelper.Types.NoteColor">
+            <summary>
+            The color of a note
+            </summary>
+        </member>
+        <member name="T:ChartHelper.Types.Note">
+            <summary>
+            Contains data for a single note
+            </summary>
+        </member>
+        <member name="P:ChartHelper.Types.Note.Time">
+            <summary>
+            The time of the note
+            </summary>
+        </member>
+        <member name="P:ChartHelper.Types.Note.TypeRaw">
+            <summary>
+            The type of the note, as specified by the srtb
+            </summary>
+        </member>
+        <member name="P:ChartHelper.Types.Note.Type">
+            <summary>
+            The specific type of the note
+            </summary>
+        </member>
+        <member name="P:ChartHelper.Types.Note.Color">
+            <summary>
+            The color of the note
+            </summary>
+        </member>
+        <member name="P:ChartHelper.Types.Note.Column">
+            <summary>
+            The lane of the note. Value increases to the left
+            </summary>
+        </member>
+        <member name="P:ChartHelper.Types.Note.CurveType">
+            <summary>
+            The specific curve type of the note
+            </summary>
+        </member>
+        <member name="P:ChartHelper.Types.Note.StartIndex">
+            <summary>
+            The index of the start of a sustained note
+            </summary>
+        </member>
+        <member name="P:ChartHelper.Types.Note.EndIndex">
+            <summary>
+            The index of the end of a sustained note
+            </summary>
+        </member>
+        <member name="P:ChartHelper.Types.Note.IsSpinEnd">
+            <summary>
+            True if the note ends a spin or scratch zone
+            </summary>
+        </member>
+        <member name="P:ChartHelper.Types.Note.IsAutoSnap">
+            <summary>
+            True if a spin or scratch sill auto snap to this note
+            </summary>
+        </member>
+        <member name="M:ChartHelper.Types.Note.#ctor(System.Single,ChartHelper.Types.NoteTypeRaw,ChartHelper.Types.NoteColor,System.Int32,ChartHelper.Types.CurveType)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="time">The time of the note</param>
+            <param name="typeRaw">The type of the note</param>
+            <param name="color">The color of the note</param>
+            <param name="column">The lane of the note. Value increases to the left</param>
+            <param name="curveType">The curve type of the note. Also may specify if the note is a liftoff or hard beat release</param>
+        </member>
+        <member name="M:ChartHelper.Types.Note.ApplyDetailedData(System.Collections.Generic.IList{ChartHelper.Types.Note})">
+            <summary>
+            Adds detailed information to a set of notes
+            </summary>
+            <param name="notes">The notes to apply</param>
+        </member>
+    </members>
+</doc>
