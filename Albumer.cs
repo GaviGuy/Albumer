@@ -43,6 +43,7 @@ namespace Albumer {
                     input = Console.ReadLine();
                 } while (!FileHelper.TryGetSrtbWithFileName(input, out sourcePaths[i]));
             }
+
             char answer = 'y';
             do {
                 Console.WriteLine("\nOutput title:");
@@ -53,9 +54,6 @@ namespace Albumer {
                 }
                 nameOut = input;
             } while (Char.ToLower(answer) != 'y');
-
-            //todo: check to see if the file already exists, prompt if overwrite
-            //todo: let the user pick a filename for output
         }
 
         //returns the number of complete measures, with optional output for the time and beat of the last measure
@@ -67,7 +65,10 @@ namespace Albumer {
 
             float curTime = srtb.GetClipInfo(0).BpmMarkers[0].ClipTime;
             float curBpm = bpms[0].BeatLength;
-            int curBeat = 0, sigIndex = 0, bpmIndex = 0, measure = 0,
+            int curBeat = 0,
+                sigIndex = 0,
+                bpmIndex = 0,
+                measure = 0,
                 beatsLeft = timeSigs[0].TicksPerBar,
                 denom = timeSigs[0].TickDivisor;
 
@@ -95,7 +96,7 @@ namespace Albumer {
                 if (bpmIndex < bpms.Count - 1 && (bpms[bpmIndex + 1].ClipTime - 0.005f) <= curTime) {
                     bpmIndex++;
                     curBpm = bpms[bpmIndex].BeatLength;
-                    curTime = bpms[bpmIndex].ClipTime; //jank way to account for interpolate
+                    curTime = bpms[bpmIndex].ClipTime; //jank way to account for 1-beat speedup interpolation
                 }
             }
             return measure;
@@ -103,6 +104,8 @@ namespace Albumer {
 
 
         static void Main(string[] args) {
+
+            //todo: use an options library to implement flags for overwriting, overwriting midpoints, autopopulating getInputParameters, etc
 
             GetInputParameters(out int numCharts, out string[] sourcePaths, out string nameOut);
 
@@ -255,7 +258,7 @@ namespace Albumer {
 
                     }
                     //move notes
-                    for (int j = 0; j < 5; j++) {
+                    for (int j = 0; j < curNoteData.Length; j++) {
                         for (int k = 0; k < curNoteData[j].Notes.Count; k++) {
                             curNoteData[j].Notes[k].Time += noteChange;
                         }
